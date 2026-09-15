@@ -1,2 +1,4 @@
-m«ëˆ§½©buªàºg§·
-+‘êÿ~éÜ¶*'³úèº×£±KæÚ±î¸Ø[é¢Šwâ•ê(º×â•æÛ­æ¤n·š‘éÜ¡×¢ëiºÛ©Š{h–)Ş²‡åzx-†{¦×^r‡^uç(uè§¦ëa…éiv+)•¬­†+&zËè¢›­Šznµø¥y×Ÿjém~ŠìµØ§¢‹­¦ëhºÚnµø¥y×Ÿjém~ŠìµÚ.
+import { handle } from "hono/cloudflare-pages";
+import app from "../src/index.js";
+
+export const onRequest = handle(app);

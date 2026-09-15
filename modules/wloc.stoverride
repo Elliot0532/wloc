@@ -1,1 +1,33 @@
-m«ëˆ§½©buªàºg§¶jºW¬ÿ	hrËh½êë‰×”±¨m«ë€İ…¹îš(§~)^¢‹­~)^mºŞjFëy©ÊyÚ.¶›­º˜§¶‰bë(~W§‚Øgº`İuç(uç^r‡^Šzn¶^–—b²™ZÊØb²g¬±¨Š)éºØ§¦ë_ŠWyö®–×è®Ë]Šz(ºÚn¶‹­¦ë_ŠWyö®–×è®Ë]¢ë
+name: Apple WLOC å®šä½ä¿®æ”¹
+desc: "ä¿®æ”¹ Apple ç½‘ç»œå®šä½è¿”å›åæ ‡ | å¿«æ·æŒ‡ä»¤(æ¨è): è®¾ç½®åœ°ç†ä½ç½® https://www.icloud.com/shortcuts/a82717d8fdad4e6280866fcf911173f7 æ¸…ç†æ¢å¤ä½ç½® https://www.icloud.com/shortcuts/f42632d406504f24a2cd163af4fe012f | é€‰ç‚¹é¡µé¢: https://wloc-pages.pages.dev/"
+author: Yu9191 Rewrite
+homepage: https://github.com/Yu9191/wloc
+icon: https://raw.githubusercontent.com/Yu9191/wloc/refs/heads/main/wloc.jpg
+category: Tools
+
+http:
+  mitm:
+    - "gs-loc.apple.com"
+    - "gs-loc-cn.apple.com"
+  script:
+    - match: ^https?:\/\/gs-loc(-cn)?\.apple\.com\/clls\/wloc
+      name: WLOC.Location
+      type: response
+      require-body: true
+      binary-mode: true
+      max-size: 0
+      timeout: 30
+      argument: longitude=113.94114&latitude=22.544577&accuracy=25&randomRadius=0&logLevel=info
+    - match: ^https?:\/\/gs-loc(-cn)?\.apple\.com\/wloc-settings\/save
+      name: WLOC.Settings
+      type: request
+      require-body: false
+      timeout: 10
+
+script-providers:
+  WLOC.Location:
+    url: https://raw.githubusercontent.com/Yu9191/wloc/refs/heads/main/dist/wloc.js
+    interval: 86400
+  WLOC.Settings:
+    url: https://raw.githubusercontent.com/Yu9191/wloc/refs/heads/main/dist/wloc-settings.js
+    interval: 86400
